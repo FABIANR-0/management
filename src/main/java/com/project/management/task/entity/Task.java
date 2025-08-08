@@ -4,6 +4,7 @@ import com.project.management.common.util.AuditEntity;
 import com.project.management.list.entity.Lists;
 import com.project.management.project.entity.Project;
 import com.project.management.tag.entity.Tag;
+import com.project.management.user.entity.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.UUID;
 
 @Entity
 @Getter
-@Table(name = "task", schema = "main")
+@Table(name = "task", schema = "main", uniqueConstraints = {@UniqueConstraint(name = "uc_task_name", columnNames = {"name", "project_id"})})
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 public class Task extends AuditEntity {
@@ -27,6 +28,10 @@ public class Task extends AuditEntity {
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "list_id")
@@ -48,5 +53,16 @@ public class Task extends AuditEntity {
     )
     private List<Tag> tags;
 
+    public Task(Project project, Lists lists, User user, String name, String description, List<Tag> tags) {
+        this.project = project;
+        this.lists = lists;
+        this.user = user;
+        this.name = name;
+        this.description = description;
+        this.tags = tags;
+    }
 
+    public static Task create(Project project, Lists lists, User user, String name, String description, List<Tag> tags) {
+        return new Task(project, lists, user, name, description, tags);
+    }
 }

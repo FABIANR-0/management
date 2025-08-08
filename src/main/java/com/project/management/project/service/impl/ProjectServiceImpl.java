@@ -1,6 +1,7 @@
 package com.project.management.project.service.impl;
 
 import com.project.management.authentication.service.AuthenticationService;
+import com.project.management.common.exception.service.ResourceNotFoundException;
 import com.project.management.project.dto.ProjectCreate;
 import com.project.management.project.dto.ProjectResponse;
 import com.project.management.project.entity.Project;
@@ -11,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -32,5 +34,10 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public List<ProjectResponse> getAllProjects() {
         return projectRepository.getAllProjects();
+    }
+
+    @Override
+    public Project getProjectById(UUID projectId) {
+        return projectRepository.findById(projectId).orElseThrow(()-> new ResourceNotFoundException("Proyecto no encontrado"));
     }
 }
