@@ -26,15 +26,15 @@ spring:
             required: true
   datasource:
     username: postgres
-    password: Profeta2
-    url:  jdbc:postgresql://localhost:5432/demo_auth
+    password: 1234
+    url:  jdbc:postgresql://localhost:5432/management
 #    username: default
 #    password: 6G9sQHtySjId
 #    url: jdbc:postgresql://ep-blue-tree-a464os3n.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require
   jpa:
     generate-ddl: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
     open-in-view: false
     properties:
