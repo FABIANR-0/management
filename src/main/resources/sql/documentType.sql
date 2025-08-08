@@ -1,0 +1,4 @@
+INSERT INTO main.document_type(code, created_at, updated_at, "name", document_type_id)VALUES('TI', now(), now(), 'Tarjeta de Identidad', '4d0dad7f-2720-4931-bc5c-a3d1f61a5e1b');
+INSERT INTO main.document_type(code, created_at, updated_at, "name", document_type_id)VALUES('CC', now(), now(), 'Cedula de Ciudadania', '78f8805e-4000-4e9e-a770-4e3704d27b72');
+INSERT INTO main.document_type(code, created_at, updated_at, "name", document_type_id)VALUES('CE', now(), now(), 'Cedula de Extrajeria', 'a48249f7-637c-4241-a629-d4f96be867b3');
+INSERT INTO main.document_type(code, created_at, updated_at, "name", document_type_id)VALUES('PAS', now(), now(), 'Pasaporte', '22c8aa82-5db1-403d-ab04-e17cad5942cd');

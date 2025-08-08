@@ -1,0 +1,2 @@
+INSERT INTO main."module"(orden, created_at, updated_at, module_id, module_name, description, ico,route)VALUES(1, now(), now(), '21617961-244d-40ec-8142-b0c92cfb4a3b', 'Rol', 'modulo de Roles', 'icon-shield-check','role');
+INSERT INTO main."module"(orden, created_at, updated_at, module_id, module_name, description, ico,route)VALUES(2, now(), now(), 'abf50d46-54e3-4e76-8bfc-2b4e0ab0d34d', 'Usuario', 'modulo de Usuarios', 'icon-users','user');
