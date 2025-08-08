@@ -1,0 +1,64 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /app
+    session:
+      timeout: 300s
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml
+    min-response-size: 1024
+logging:
+  config:
+    classpath: logs_generation.xml
+  file:
+    name: Logs/Log_Management.log
+spring:
+  mvc:
+    async:
+      request-timeout: 300000
+    path match:
+      matching-strategy: ant_path_matcher
+  datasource:
+    password: 1234
+    url: jdbc:postgresql://localhost:5432/management
+    username: postgres
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: wpossecommerce@gmail.com
+    password: tytilastpyeynsoo
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  jpa:
+    generate-ddl: false
+    hibernate.ddl-auto: create
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        hbm2ddl:
+          charset_name: UTF-8
+          import_files: scripts/2_user.sql, scripts/4_modules.sql, scripts/5_permissions.sql, scripts/6_roles.sql, scripts/7_email_template.sql
+settings:
+  url:
+    front: http://localhost:4207
+  application:
+    name: Management
+    web-site: https://www.fgfgfg.com/
+  social-networks:
+    facebook: https://www.facebook.com
+    instagram: https://www.instagram.com
+    linkedin: https://www.linkedin.com
+  auth:
+    token-time: 60
+  encryption:
+    aes:
+      key: p1u8BUk3s2LMpiipOt0H2&kI8691oWG5
+      iv: 7i3N42ATc
