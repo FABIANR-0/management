@@ -15,8 +15,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: wpossecommerce@gmail.com
-    password: tytilastpyeynsoo
+    username: yorksanc@gmail.com
+    password: lfrwjavbmczhflsd
     properties:
       mail:
         smtp:
@@ -28,9 +28,6 @@ spring:
     username: postgres
     password: 1234
     url:  jdbc:postgresql://localhost:5432/management
-#    username: default
-#    password: 6G9sQHtySjId
-#    url: jdbc:postgresql://ep-blue-tree-a464os3n.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require
   jpa:
     generate-ddl: true
     hibernate:
@@ -57,4 +54,4 @@ settings:
       key: p1u8BUk3s2LMpiipOt0H2&kI8691oWG5
       iv: 7i3N42ATc
   application:
-    name: CinelLeonelda
+    name: management
