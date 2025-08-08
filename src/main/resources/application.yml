@@ -1,28 +1,17 @@
 server:
-  port: 8000
+  port: 8080
   servlet:
     context-path: /app
-    session:
-      timeout: 300s
   compression:
     enabled: true
-    mime-types: application/json,application/xml
     min-response-size: 1024
-logging:
-  config:
-    classpath: logs_generation.xml
-  file:
-    name: Logs/Log_Management.log
+    mime-types: application/json,application/xml
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        web: DEBUG
 spring:
-  mvc:
-    async:
-      request-timeout: 300000
-    path match:
-      matching-strategy: ant_path_matcher
-  datasource:
-    password: 1234
-    url: jdbc:postgresql://localhost:5432/management
-    username: postgres
   mail:
     host: smtp.gmail.com
     port: 587
@@ -35,9 +24,17 @@ spring:
           starttls:
             enable: true
             required: true
+  datasource:
+    username: postgres
+    password: Profeta2
+    url:  jdbc:postgresql://localhost:5432/demo_auth
+#    username: default
+#    password: 6G9sQHtySjId
+#    url: jdbc:postgresql://ep-blue-tree-a464os3n.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require
   jpa:
-    generate-ddl: false
-    hibernate.ddl-auto: create
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
     show-sql: true
     open-in-view: false
     properties:
@@ -45,20 +42,19 @@ spring:
         format_sql: true
         hbm2ddl:
           charset_name: UTF-8
-          import_files: scripts/2_user.sql, scripts/4_modules.sql, scripts/5_permissions.sql, scripts/6_roles.sql, scripts/7_email_template.sql
+          import_files: sql/documentType.sql,sql/user.sql,sql/role.sql,sql/module.sql,sql/permission.sql
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true
 settings:
-  url:
-    front: http://localhost:4207
-  application:
-    name: Management
-    web-site: https://www.fgfgfg.com/
-  social-networks:
-    facebook: https://www.facebook.com
-    instagram: https://www.instagram.com
-    linkedin: https://www.linkedin.com
   auth:
-    token-time: 60
+    token-time: 30
+    time-resent-email: 30
   encryption:
     aes:
       key: p1u8BUk3s2LMpiipOt0H2&kI8691oWG5
       iv: 7i3N42ATc
+  application:
+    name: CinelLeonelda
