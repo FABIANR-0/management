@@ -48,7 +48,6 @@ springdoc:
 settings:
   auth:
     token-time: 30
-    time-resent-email: 30
   encryption:
     aes:
       key: p1u8BUk3s2LMpiipOt0H2&kI8691oWG5
