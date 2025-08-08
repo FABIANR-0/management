@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("secure/project")
+@RequestMapping("security/project")
 public class ProjectController {
 
     private final ProjectService projectService;
