@@ -6,6 +6,7 @@ import com.project.management.authentication.dto.ResetPasswordRequest;
 import com.project.management.authentication.dto.TokenResentPasswordRequest;
 import com.project.management.refreshToken.dto.RefreshTokenRequest;
 import com.project.management.refreshToken.dto.RefreshTokenResponse;
+import com.project.management.user.entity.User;
 
 public interface AuthenticationService {
     LoginResponse login(LoginRequest request);
@@ -15,4 +16,6 @@ public interface AuthenticationService {
     void verifyTokenResetPassword(TokenResentPasswordRequest request);
 
     RefreshTokenResponse refreshToken(RefreshTokenRequest request);
+
+    User getUserAuthenticated();
 }

@@ -2,6 +2,7 @@ package com.project.management.project.entity;
 
 
 import com.project.management.common.util.AuditEntity;
+import com.project.management.user.entity.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -28,16 +29,21 @@ public class Project extends AuditEntity {
     @Column(name = "image_base64", columnDefinition = "TEXT")
     private String imageBase64;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     public Project() {
     }
 
-    public Project(String name, String description, String imageBase64) {
+    public Project(String name, String description, String imageBase64, User user) {
         this.name = name;
         this.description = description;
         this.imageBase64 = imageBase64;
+        this.user = user;
     }
 
-    public static Project create(String name, String description, String imageBase64) {
-        return new Project(name, description, imageBase64);
+    public static Project create(String name, String description, String imageBase64, User user) {
+        return new Project(name, description, imageBase64, user);
     }
 }
